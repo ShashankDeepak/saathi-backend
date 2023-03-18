@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 4002;
 
+const mongoURL = require("./config");
+
 app.use(bodyParser.urlencoded({}));
 app.use(bodyParser.json());
 
@@ -11,16 +13,13 @@ app.use(bodyParser.json());
 
 const notification_router = require("./routes/notification");
 
-mongoose
-  .connect(
-    "mongodb+srv://Shashank:PqrbdkID1S05b2XZ@cluster0.g6ls0lt.mongodb.net/notesdb"
-  )
-  .then(function () {
-    app.get("/", function (req, res) {
-      res.send("Hello");
-    });
-
-    app.use("/notifications", notification_router);
+mongoose.connect(mongoURL.db_url).then(function () {
+  //mongoURL.mongo_url -> it is the url of the database
+  app.get("/", function (req, res) {
+    res.send("Hello");
   });
+
+  app.use("/notifications", notification_router);
+});
 
 app.listen(PORT);
