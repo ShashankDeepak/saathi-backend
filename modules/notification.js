@@ -1,14 +1,19 @@
 const mongoose = require("mongoose");
 
 const notificationSchema = mongoose.Schema({
+  userID: {
+    type: String,
+    default: "",
+  },
+
   title: {
     type: String,
     default: "",
   },
 
   date: {
-    type: Date,
-    default: Date.now(),
+    type: String,
+    default: "",
   },
 
   subtitle: {
@@ -17,4 +22,4 @@ const notificationSchema = mongoose.Schema({
   },
 });
 
-module.export = mongoose.model("Notification", notificationSchema);
+module.exports = mongoose.model("Notifications", notificationSchema);

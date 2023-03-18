@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const donationSchema = mongoose.Schema({
+  userID: { type: String, default: "" },
+
   title: { type: String, default: "" },
 
   description: { type: String, default: "" },

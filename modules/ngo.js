@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const ngoSchema = mongoose.Schema({
+  ngoID: {
+    type: String,
+    default: "",
+  },
+
   name: {
     type: String,
     default: "",
