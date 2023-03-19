@@ -3,6 +3,12 @@ const mongoose = require("mongoose");
 const campaignSchema = mongoose.Schema({
   poster: String,
 
+  ngoID: {
+    type: String,
+    required: true,
+    default: "",
+  },
+
   title: {
     type: String,
     required: true,
@@ -15,6 +21,8 @@ const campaignSchema = mongoose.Schema({
   },
 
   tags: [String],
+
+  donors: [String],
 
   phone: {
     type: Number,
@@ -38,7 +46,7 @@ const campaignSchema = mongoose.Schema({
 
   endDate: { type: Date, default: "" },
 
-  hasEnded: { type: boolean, default: false },
+  hasEnded: { type: Boolean, default: false },
 
   raised: {
     type: mongoose.Schema.Types.Decimal128,
@@ -47,12 +55,6 @@ const campaignSchema = mongoose.Schema({
   },
 
   totalAmount: { type: mongoose.Schema.Types.Decimal128, default: "" },
-
-  ngoID: {
-    type: String,
-    required: true,
-    default: "",
-  },
 });
 
-module.exports = mongoose.model("campaign", campaignSchema);
+module.exports = mongoose.model("Campaign", campaignSchema);

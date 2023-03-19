@@ -6,6 +6,11 @@ const notificationSchema = mongoose.Schema({
     default: "",
   },
 
+  ngoID: {
+    type: String,
+    default: "",
+  },
+
   title: {
     type: String,
     default: "",

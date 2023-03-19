@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 //Routers
 
 const notification_router = require("./routes/notification");
+const campaign_router = require("./routes/campaign");
 
 mongoose.connect(mongoURL.db_url).then(function () {
   //mongoURL.mongo_url -> it is the url of the database
@@ -20,6 +21,8 @@ mongoose.connect(mongoURL.db_url).then(function () {
   });
 
   app.use("/notifications", notification_router);
+
+  app.use("/campaign", campaign_router);
 });
 
 app.listen(PORT);

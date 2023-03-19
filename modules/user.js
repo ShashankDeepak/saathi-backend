@@ -41,7 +41,7 @@ const userSchema = mongoose.Schema({
     default: "",
   },
 
-  donation: {
+  numberOfDonations: {
     type: Number,
     default: 0,
   },
@@ -60,6 +60,12 @@ const userSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+
+  notifications: [String],
+
+  campaigns: [String],
+
+  donations: [String],
 });
 
 module.exports = mongoose.model("user", userSchema);
