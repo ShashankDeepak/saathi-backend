@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema({
-  userID: {
-    type: String,
-    default: "",
-  },
-
   name: {
     type: String,
     default: "",
@@ -46,7 +41,7 @@ const userSchema = mongoose.Schema({
     default: 0,
   },
 
-  uploads: {
+  numberOfCampaigns: {
     type: Number,
     default: 0,
   },

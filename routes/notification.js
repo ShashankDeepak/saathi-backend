@@ -10,11 +10,12 @@ router.post("/add/:userID", async function (req, res) {
     subtitle: req.body.subtitle,
     date: req.body.date,
   });
-  await newNotifications.save();
+  const savedData = await newNotifications.save();
   const response = {
-    message: "Your note has been added " + `title: ${req.body.title}`,
+    notificationID: savedData._id,
+    message: "Your notification has been added ",
   };
-  res.json(response);
+  res.status(200).json(response);
 });
 
 router.get("/list/:userID", async function (req, res) {

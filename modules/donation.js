@@ -9,7 +9,7 @@ const donationSchema = mongoose.Schema({
 
   location: { type: String, default: "" },
 
-  image: { type: String, default: "" },
+  poster: { type: String, default: "" },
 
   contact: {
     type: Number,
@@ -19,7 +19,7 @@ const donationSchema = mongoose.Schema({
 
   acceptedByID: { type: String, default: "" },
 
-  isAccepted: { type: boolean, default: false },
+  isAccepted: { type: Boolean, default: false },
 
   donationType: { type: String, default: "" },
 
@@ -28,4 +28,4 @@ const donationSchema = mongoose.Schema({
   tags: [],
 });
 
-module.exports = mongoose.model("donation", donationSchema);
+module.exports = mongoose.model("Donation", donationSchema);

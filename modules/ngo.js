@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 
 const ngoSchema = mongoose.Schema({
-  ngoID: {
-    type: String,
-    default: "",
-  },
-
   name: {
     type: String,
     default: "",
@@ -17,7 +12,7 @@ const ngoSchema = mongoose.Schema({
   },
 
   isVerified: {
-    type: boolean,
+    type: Boolean,
     default: false,
   },
 
@@ -55,8 +50,11 @@ const ngoSchema = mongoose.Schema({
     type: String,
     default: "",
   },
+  donations: [String],
 
-  tage: [],
+  campaigns: [String],
+
+  tags: [String],
 });
 
-module.exports = mongoose.model("ngo", ngoSchema);
+module.exports = mongoose.model("Ngo", ngoSchema);

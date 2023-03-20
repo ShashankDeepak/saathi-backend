@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 
 const notification_router = require("./routes/notification");
 const campaign_router = require("./routes/campaign");
+const user_router = require("./routes/user");
+const ngo_router = require("./routes/ngo");
+const donation_router = require("./routes/donation");
 
 mongoose.connect(mongoURL.db_url).then(function () {
   //mongoURL.mongo_url -> it is the url of the database
@@ -23,6 +26,12 @@ mongoose.connect(mongoURL.db_url).then(function () {
   app.use("/notifications", notification_router);
 
   app.use("/campaign", campaign_router);
+
+  app.use("/user", user_router);
+
+  app.use("/donation", donation_router);
+
+  app.use("/ngo", ngo_router);
 });
 
 app.listen(PORT);
